@@ -278,7 +278,7 @@
 				DEVELOPMENT_TEAM = U2ZN2W2UQJ;
 				INFOPLIST_FILE = GuessingGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.on.lcs.GuessingGame;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.lcs.gordon.GuessingGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -293,7 +293,7 @@
 				DEVELOPMENT_TEAM = U2ZN2W2UQJ;
 				INFOPLIST_FILE = GuessingGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ca.on.lcs.GuessingGame;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.on.lcs.gordon.GuessingGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
