@@ -35,6 +35,9 @@ Guess it!</string>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="inputGiven:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="bRU-BW-td2"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQU-mc-YIm">
                                 <rect key="frame" x="139" y="429" width="43" height="30"/>
@@ -44,13 +47,24 @@ Guess it!</string>
                                     <action selector="checkGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mme-nt-exX"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qhv-4y-y1H">
+                                <rect key="frame" x="125" y="429" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play again"/>
+                                <connections>
+                                    <action selector="checkGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qq4-TG-xSi"/>
+                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uSA-gg-8G7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="guessButton" destination="sQU-mc-YIm" id="BpW-HH-1Fx"/>
                         <outlet property="guessedNumber" destination="Fg3-eZ-O67" id="btE-4S-oo9"/>
                         <outlet property="instructionsLabel" destination="Y5G-pF-1N9" id="fOJ-cf-d3x"/>
+                        <outlet property="playAgainButton" destination="Qhv-4y-y1H" id="5mG-N0-xgC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
