@@ -19,12 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5G-pF-1N9">
-                                <rect key="frame" x="16" y="29" width="288" height="258"/>
+                                <rect key="frame" x="16" y="29" width="288" height="211"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">I'm thinking of a number
 between 0 and 1000.
 
-Guess it!</string>
+Guess it!
+
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,12 +58,20 @@ Guess it!</string>
                                     <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uSA-gg-8G7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 guesses made." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iS-H7-hHO">
+                                <rect key="frame" x="95" y="274" width="131" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="guessButton" destination="sQU-mc-YIm" id="BpW-HH-1Fx"/>
+                        <outlet property="guessTracker" destination="6iS-H7-hHO" id="4b6-3Y-x87"/>
                         <outlet property="guessedNumber" destination="Fg3-eZ-O67" id="btE-4S-oo9"/>
                         <outlet property="instructionsLabel" destination="Y5G-pF-1N9" id="fOJ-cf-d3x"/>
                         <outlet property="playAgainButton" destination="Qhv-4y-y1H" id="5mG-N0-xgC"/>

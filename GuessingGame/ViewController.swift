@@ -15,9 +15,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var guessButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var guessTracker: UILabel!
     
     // MARK: Properties
     var targetNumber : Int = -1
+    var lowestGuessCountEver = Int.max  // Set the lowest guess count to the highest possible integer value to begin with
+    var guessCountForThisRound = 0      // No guesses so far...
     
     // MARK: Overrides
     override func viewDidLoad() {
@@ -49,6 +52,7 @@ class ViewController: UIViewController {
         }
         
         // Check the guess
+        updateGuessCount()
         if guess == targetNumber {
             endGame()
         } else if guess > targetNumber {
@@ -61,28 +65,65 @@ class ViewController: UIViewController {
     
     // End the game and ask whether user wants to play again
     func endGame() {
-        instructionsLabel.text = "You got it!"
         guessButton.isHidden = true
         playAgainButton.isHidden = false
+        guessedNumber.isEnabled = false
+        
+        // Is this a new record?
+        if guessCountForThisRound < lowestGuessCountEver {
+            instructionsLabel.text = """
+            You got it!
+            
+            New record!
+            Only \(guessCountForThisRound) guesses.
+            """
+            
+            // Report prior best, if there was one
+            if lowestGuessCountEver != Int.max {
+                instructionsLabel.text = instructionsLabel.text! + "\n\nPrior best was \(lowestGuessCountEver)."
+            }
+
+            // Update best ever
+            lowestGuessCountEver = guessCountForThisRound
+        } else {
+            instructionsLabel.text = "You got it!"
+        }
+
+        
     }
     
     // Start a new game
     @IBAction func startNewGame(_ sender: Any) {
         
         // Generate a number for the player to guess
-        self.targetNumber = Int(arc4random_uniform(1001)) // Produce a number between 1 and 1000, inclusive (but not 1001)
+        targetNumber = 2//Int(arc4random_uniform(1001)) // Produce a number between 1 and 1000, inclusive (but not 1001)
         
-        // Reset the interface
+        // Reset the interface and game
         playAgainButton.isHidden = true
         guessButton.isHidden = false
-        instructionsLabel.text = "I'm thinking of a number\nbetween 0 and 1000.\n\nGuess it!"
+        guessedNumber.isEnabled = true
+        instructionsLabel.text = "I'm thinking of a number\nbetween 0 and 1000.\n\nGuess it!\n\n"
         guessedNumber.text = ""
+        guessTracker.text = "0 guesses made."
+        
+        // Reset best guess count
+        guessCountForThisRound = 0
         
     }
     
     // User pressed return so make the the same as pressing the button
     @IBAction func inputGiven(_ sender: Any) {
         checkGuess(self)
+    }
+    
+    // Keep track of guesses
+    func updateGuessCount() {
+        guessCountForThisRound += 1
+        if guessCountForThisRound == 1 {
+            guessTracker.text = "1 guess made."
+        } else {
+            guessTracker.text = "\(guessCountForThisRound) guesses made."
+        }
     }
     
 }
