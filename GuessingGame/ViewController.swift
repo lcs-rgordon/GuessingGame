@@ -45,6 +45,15 @@ class ViewController: UIViewController {
             return
         }
         
+        // Check the guess
+        if guess == targetNumber {
+            instructionsLabel.text = "You got it!"
+        } else if guess > targetNumber {
+            instructionsLabel.text = "Guess lower."
+        } else {
+            instructionsLabel.text = "Guess higher."
+        }
+        
     }
     
 }
